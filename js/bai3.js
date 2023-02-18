@@ -4,28 +4,21 @@ function tinhThue() {
     var hoTen = document.getElementById("hoten").value;
     var tongthuNhap = Number(document.getElementById("tongthunhap").value);
     var soNguoi = Number(document.getElementById("songuoi").value);
-    var tinhTienThue = 0;
-    if (tongthuNhap <= 60000000) {
-     tinhTienThue = 60000000*0.05 + (tongthuNhap-60000000)*0.05;
-     tienthue(tinhTienThue,soNguoi);
-    }else if (tongthuNhap > 60000000 && tongthuNhap <= 120000000) {
-        tinhTienThue = 60000000*0.05 + (tongthuNhap-60000000)*0.1
-        tienthue(tinhTienThue,soNguoi);
-    }else if(tongthuNhap > 120000000 && tongthuNhap <= 210000000 ) {
-        tinhTienThue = 60000000*0.05 + 120000000*0.1+ (tongthuNhap-120000000)*0.15;
-        tienthue(tinhTienThue,soNguoi);
-    }else if(tongthuNhap > 210000000 && tongthuNhap <= 384000000) {
-        tinhTienThue = 60000000*0.05 + 120000000*0.1 + 210000000*0.2 + (tongthuNhap-120000000)*0.2;
-        tienthue(tinhTienThue,soNguoi);
-    }else if(tongthuNhap > 384000000 && tongthuNhap <= 624000000) {
-        tinhTienThue = 60000000*0.05 + 120000000*0.1 + 210000000*0.2 + 384000000*0.25 + (tongthuNhap-120000000)*0.25;
-        tienthue(tinhTienThue,soNguoi);
-    }else if(tongthuNhap > 624000000 && tongthuNhap <= 960000000){
-        tinhTienThue = 60000000*0.05 + 120000000*0.1 + 210000000*0.2 + 384000000*0.25 + 624000000*0.3 (tongthuNhap-120000000)*0.3;
-        tienthue(tinhTienThue,soNguoi);
+    var thuNhapChiuThue = tongthuNhap - 4000000 - soNguoi *1600000;
+    if (thuNhapChiuThue <= 60000000) {
+        tienThue = thuNhapChiuThue*0.05;
+    }else if (thuNhapChiuThue > 60000000 && thuNhapChiuThue <= 120000000) {
+        tienThue = thuNhapChiuThue*0.1;
+    }else if(thuNhapChiuThue > 120000000 && thuNhapChiuThue <= 210000000 ) {
+        tienThue = thuNhapChiuThue*0.15;
+    }else if(thuNhapChiuThue > 210000000 && thuNhapChiuThue <= 384000000) {
+        tienThue = thuNhapChiuThue*0.2;
+    }else if(thuNhapChiuThue > 384000000 && thuNhapChiuThue <= 624000000) {
+        tienThue = thuNhapChiuThue*0.25;
+    }else if(thuNhapChiuThue > 624000000 && thuNhapChiuThue <= 960000000){
+        tienThue = thuNhapChiuThue*0.3;
     }else {
-        tinhTienThue = 60000000*0.05 + 120000000*0.1 + 210000000*0.2 + 384000000*0.25 + 624000000*0.3+ 960000000*0.35 (tongthuNhap-120000000)*0.35;
-        tienthue(tinhTienThue,soNguoi);
+        tienThue = thuNhapChiuThue*0.35;
     }
 
     
@@ -33,6 +26,6 @@ function tinhThue() {
 }
 
 function tienthue(tinhTienThue,soNguoi){
-   return tienThue = tinhTienThue/soNguoi; 
+   return tienThue = tinhTienThue-4000000-soNguoi*1600000; 
 }
 document.getElementById("btnThuThuNhap").onclick = tinhThue;
